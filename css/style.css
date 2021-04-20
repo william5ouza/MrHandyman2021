@@ -1,0 +1,83 @@
+html{
+    min-height: 100%;
+    min-height: 100%;
+}
+body {
+  min-height: 100%;  
+  background: linear-gradient(rgba(239, 255, 254, 0.753), rgba(225, 212, 253, 0.884)), url("https://cdn.pixabay.com/photo/2019/07/10/13/14/tools-4328655_960_720.jpg")
+  no-repeat;
+  /* Nice way to modify opaciticy of backbackground without affecting the whole body of the page
+  https://stackoverflow.com/questions/4997493/set-opacity-of-background-image-without-affecting-child-elements 
+*/
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover ;
+  -moz-background-size: cover ;
+  margin: 0;
+  padding: 0;
+  margin: 0;
+  font-family:cursive;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: justify;
+  background-color: #fff;
+}
+p {
+    font-size: 100%;
+    color: #000000;
+}
+table {
+    background-color: transparent;
+    border-color: #06187c;
+    border-width: thin;
+    border-collapse: collapse;
+    width: 75%;
+}
+th {
+    font-size: larger;
+    border-color: #113461;
+    color: #13034e;
+}
+td {
+    
+    font-size: medium;
+    color: #010003;
+    padding: 10px;
+}
+.navbar-brand {
+
+  font-size:30px;
+  text-align: left;
+  padding-bottom: 5px ;
+}
+
+.navbar-toggle {
+    z-index:1;
+    display: grid;
+}
+
+@media (max-width: 768px) {
+    .navbar-collapse  {
+        display: block;
+       
+    }
+}
+.text-center {
+    text-align: center!important;
+}
+
+.panel-group {
+  
+  padding: 1rem;  
+  position: center;  
+  width: 500px;
+  margin: auto;
+  border: 3px solid rgb(3, 114, 189);
+}
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
