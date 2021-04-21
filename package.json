@@ -1,0 +1,27 @@
+{
+  "name": "mrhandyman2021",
+  "version": "1.0.0",
+  "description": "CA2 IWA at CCT College Dublin",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/william5ouza/MrHandyman2021.git"
+  },
+  "author": "William Souza 2020449",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/william5ouza/MrHandyman2021/issues"
+  },
+  "homepage": "https://github.com/william5ouza/MrHandyman2021#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.5"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.7"
+  }
+}
