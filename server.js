@@ -1,37 +1,35 @@
-const express = require ('express')
-const app = express()
-const mongoose = require('mongoose')
-require('dotenv').config()
 
-mongoose.connect('mongo')
-const db = mongoose.connection
-db.on('error', (error) => console.error(error))
-db.once('open', () => console.log('Connected to Database'))
+const express = require('express');
+const dotenv = require('dotenv');
+const morgan = require('morgan');
+const bodyparser = require("body-parser");
+const path = require('path');
 
-app.use(express.json)
+const connectDB = require('./connections/connector');
 
-const messagesRouter = require()
+const app = express();
 
-const mongoose =require('mongoose');
+dotenv.config({path:'.env'});
+const PORT = process.env.PORT || 8000;
 
-const connectDB = async() => {
-    try {
-        //mongodb connection string
-        const con = await mongoose.connect(process.env.DB_URL, {
-            useNewUrlParser:true,
-            useUnifiedTopology:true,
-            useFindAndModify:false,
-            useCreateIndex:true
-        });
+//log requests
+app.use(morgan('tiny'));
 
-        console.log(`MongoDB connected:${con.connection.host}`);
-    } catch (error) {
-        console.log(error);
-        process.exit(1);
-    }
-}
+//mongodb connection
+connectDB();
 
-module.exports = connectDB;
+//parse request to body-parser
+app.use(bodyparser.urlencoded({extended:true}));
 
+//set view engine
+app.set("view engine","ejs");
 
-app.listen(3000, () => console.log('Server has  started'))
+//load assets
+app.use("/css",express.static(path.resolve(__dirname,"assets/css")));
+app.use("/img",express.static(path.resolve(__dirname,"assets/img")));
+app.use("/js",express.static(path.resolve(__dirname,"assets/js")));
+
+//load routers
+app.use(require('./router'));
+
+app.listen(3000,() => {console.log(`Server is running on http://localhost:${PORT}`)});
