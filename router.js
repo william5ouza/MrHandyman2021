@@ -3,40 +3,40 @@
 const express = require('express');
 const router = express.Router();
 
-const MSG = require ('./model/editingMSG');
+const msgCtrl = require ('./message-crtl');
 
 
 router.get('/', async (req, res) =>{
-    const MSG = await MSG.find();
+    const msgCtrl = await getMessages.find();
     
     res.render('index', {
-        editingMSG
+        getMessages
 });
 });
 
 //Create a message in db
 router.post('/add', (req, res) =>{
     
-    const MSG = new MSG(req.body);
-     editingMSG.save();
+    const msgCtrl = new msgCtrl(req.body);
+     getMessages.save();
     res.redirect('/');
 });
 
 
-//Update a message from db
+/*Update a message from db
 router.post('/edit/:id', async (req, res) =>{
 
      const { id } = req.params;
-    await MSG.update ({ _id: id }, req.body);
+    await msgCtrl.update ({ _id: id }, req.body);
      res.redirect('/');
 
 });
-
+*/
 //Delete a message from db
 router.get('/delete/:id', async (req, res) => {
 
     const { id } = req.params;
-    await MSG.remove({_id: id });
+    await msgCtrl.remove({_id: id });
      res.redirect('/');
 });
 

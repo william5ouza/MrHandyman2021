@@ -1,8 +1,10 @@
-const mongoose = require ('mongoose'); //import mongoose
 
-const Schema = mongoose.Schema;
+//import mongoose
+const mongoose = require ('mongoose');
+
 //creating a new Schema in our mongoDB with the table fields that will be seen by the users
 const messageSchema = new Schema({
+    section: {type: String, enum: ['Heating', 'Plumbing', 'Elteric', 'Painting']},
 
     name: String, 
     email: String,
@@ -14,4 +16,4 @@ const messageSchema = new Schema({
 
 });
 
-module.exports = mongoose.model( 'editingMSG', messageSchema);
+module.exports = mongoose.model( 'Message', messageSchema);

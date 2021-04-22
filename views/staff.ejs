@@ -64,9 +64,38 @@
         <div class="row">
            <div id="results"  class="col-1 col-sm-5 col-md-8"></div>
             <div class="col-6 col-md-4">
-                <button id="delete" class="btn btn-outline-danger btn-block">Delete</button>
-                <p class="text-muted text-center">To delete a message please, click the required row first</p>
-            </div>   
+                <table class="table">
+
+			    <thead>
+				    <tr>
+					    <th>Item</th>
+                        <th>Type</th>
+					    <th>Price €</th>
+					    <th>Description</th>
+                        <th>Specs</th>
+					    <th>Action</th>
+				    </tr>
+			    </thead>
+
+			<tbody>
+                 <% MessageDB.forEach(MessageDB =>{ %>
+                <tr> 
+                    <td><%= MessageDB.section %></td>
+                    <td><%= MessageDB.name %> </td>
+                    <td><%= MessageDB.email %> </td>
+                    <td><%= MessageDB.phone %> </td>
+                    <td><%= MessageDB.message %> </td>
+                    <td>
+                            
+                        <form action="MessageDB/<%= MessageDB.id %>" method="post">
+                            <button type="submit" class="btn btn-danger delete-product">Delete</button>
+                             <p class="text-muted text-center">To delete a message please, click the required row first</p>
+                        </form> 
+                    </td>
+                </tr>
+                <%})%>
+            </tbody>
+                </div>   
             </div>
         </div>
     </div>
