@@ -26,7 +26,7 @@ connectDB();
 //set view engine
 app.set("view engine","ejs");
 app.get('/', (req, res) => {
-    res.render('contactus')
+    res.render('index')
 })
 
 // *** GET Routes - display pages ***
