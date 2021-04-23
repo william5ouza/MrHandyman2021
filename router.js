@@ -3,14 +3,14 @@
 const express = require('express');
 const router = express.Router();
 
-const msgCtrl = require ('./message-crtl');
+const msgCtrl = require ('./message_crtl');
 
 
 router.get('/', async (req, res) =>{
-    const msgCtrl = await getMessages.find();
+    const msgCtrl = await msgCtrl.find();
     
     res.render('index', {
-        getMessages
+        msgCtrl
 });
 });
 

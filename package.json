@@ -2,7 +2,7 @@
   "name": "mrhandyman2021",
   "version": "1.0.0",
   "description": "CA2 IWA at CCT College Dublin",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "devStart": "nodemon server.js"
   },

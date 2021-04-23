@@ -1,6 +1,6 @@
 
 
-var aMsg = require('./models/MessageDB')
+var aMsg = require('./model/MessageDB')
 
 //Creating messages function
 
