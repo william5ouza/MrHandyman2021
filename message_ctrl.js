@@ -1,29 +1,31 @@
-
-
-var aMsg = require('./model/MessageDB')
+var aMsg = require('./model/message_')
 
 //Creating messages function
 
 exports.createMsg = async(req, res) =>{ 
+     // validate request
+  if (!req.body) {
+    res.status(400).send({ message: "Content can not be emtpy!" });
+    return;
+  }
+
      console.log("section: " + req.body.sec_n);
-        var sectionName='Heating';
+        var sectionName='Paiting';
         
         if(req.body.sec_n == 1){
             sectionName = 'Plumbing';
         }else if(req.body.sec_n == 2){
             sectionName = 'Eletric';
         }else if(req.body.sec_n == 3){
-            sectionName = 'Painting';
+            sectionName = 'Heating';
         }
 
-        console.log(sectionName);
-
-        var newMessage = new ({
+        const newMessage = new aMsg ({
             
             section: sectionName,
             name: req.body.name,
-            email: req.body.email,
             phone: req.body.phone,
+            location: req.body.location,
             message: req.body.message
             
         });
@@ -37,34 +39,31 @@ exports.createMsg = async(req, res) =>{
     res.redirect('/');
 };
 
-//get products function
 exports.getMessages = async(req,res)=>{
-   let MessageList= [];
+   let allMSG= []
    try{
-    MessageList = await aMsg.find()
+     allMSG = await aMSG.find();
 
-    res.render('index',{MessageDB:MessageList})
+    res.render('/staff',{msg:allMSG});
    }catch{
-    console.log("Something happend at getting products")
-    MessageList=[]
-      res.render('index',{MessageDB:MessageList})
-   }
+    console.log("Something happend at getting products");
+    allMSG=[];
+      res.render('/staff',{msg:allMSG});
+   };
     
    //rendering index page, sending the fetched products
 };
 
-
-//delete product function
-exports.deleteMessage = async(req, res)=> {
+//delete function
+exports.deleteMsg = async(req, res)=> {
     try{
         await aMsg.findByIdAndRemove(req.params.id)
         console.log("trying to delete product with with id " + req.params.id);
         res.redirect('/');
     }catch(error){
-        console.log("something happend in deleting this message")
+        console.log("couldnt delete this message")
         console.log(error);
         res.redirect('/');
     }
     
 };
-

@@ -8,7 +8,7 @@ dotenv.config({path:'.env'});
 
 
 const dbURI = process.env.DB_URL;
-const conntoDB = async() => {
+const connectDB = async() => {
     try {
         //mongodb connection String from the .env file
         const conn = await mongoose.connect(dbURI, {
@@ -25,4 +25,4 @@ const conntoDB = async() => {
     }
 }
 
-module.exports = conntoDB;
+module.exports = connectDB;

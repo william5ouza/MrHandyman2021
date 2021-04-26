@@ -1,0 +1,16 @@
+
+<% for(var i = 0; i < msgs.length; i++) { %>
+<tr>
+    <td><%= i + 1 %></td>
+    <td><%= msgs[i].section %></td>
+    <td><%= msgs[i].name %></td>
+    <td><%= msgs[i].phone %></td>
+    <td><%= msgs[i].area %></td>
+    <td><%= msgs[i].message %></td>
+    <td>
+        <a class="btn border-shadow delete" data-id=<%= msgs[i]._id%> >
+            <span class="text-gradient"><i class="fas fa-times"></i></span>
+        </a>
+    </td>
+</tr>
+<% } %>
