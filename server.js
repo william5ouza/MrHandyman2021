@@ -26,8 +26,6 @@ const PORT = process.env.PORT || 5000;
 
 //setting up the message controller
 
-//log requests
-app.use(morgan('tiny'));
 
 //mongodb connection
 connectDB();

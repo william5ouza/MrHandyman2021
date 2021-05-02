@@ -9,7 +9,7 @@ const msgCtrl = require('../control/message_ctrl');
 var msg = require('../model/message_')//This var is extremely necessary for loading the table
 
 
-router.get('/index', function(req, res) {
+router.get('/', function(req, res) {
   res.render('index', {page:'Home', menuId:'home'});
 });
 

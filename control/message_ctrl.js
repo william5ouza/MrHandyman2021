@@ -1,6 +1,7 @@
 var msg = require('../model/message_')//import the schema in here
 
 //Creating messages function
+
 exports.createMsg = async(req, res) =>{ 
      // validate request
     var sectionName='Painting';
@@ -46,10 +47,8 @@ exports.deleteMsg = async(req, res)=> {
     try{
         await msg.findByIdAndRemove(req.params.id)
         console.log("trying to delete message with with id " + req.params.id);
-        alert("Thank you for keeping it tidy")
         res.redirect('/staff');
     }catch(error){
-        console.log("something happend in deleting product")
         console.log(error);
         res.redirect('/staff');
     }
