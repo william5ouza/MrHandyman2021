@@ -9,7 +9,7 @@ const ejs = require('ejs');
 const connectDB = require('./connections/connector');
 const app = express();
 
-
+var msgCtrl = require('./control/message_ctrl')
 
 bodyParser = require("body-parser")
 
@@ -25,8 +25,6 @@ dotenv.config({path:'.env'});
 const PORT = process.env.PORT || 5000;
 
 //setting up the message controller
-var Ctrl = require('./message_ctrl');
-
 
 //log requests
 app.use(morgan('tiny'));
@@ -42,10 +40,9 @@ app.set("view engine","ejs");
 // set path for static assets
 app.use(express.static(path.join(__dirname, 'views')));
 
-var Ctrl = require('./message_ctrl')
-
 //load routers
 
 app.use('/', require('./router/routes'));
+
 
 app.listen(3000,() => {console.log(`Server is running on http://localhost:${PORT}`)});

@@ -1,16 +1,21 @@
+<!-
+- The var "msg" must be the same as we import our schema from our model file
+- A button danger(bootstrap) is inserted at the end of the table in order to delete an item called by id
+-->   
 
-<% for(var i = 0; i < msgs.length; i++) { %>
-<tr>
-    <td><%= i + 1 %></td>
-    <td><%= msgs[i].section %></td>
-    <td><%= msgs[i].name %></td>
-    <td><%= msgs[i].phone %></td>
-    <td><%= msgs[i].area %></td>
-    <td><%= msgs[i].message %></td>
-    <td>
-        <a class="btn border-shadow delete" data-id=<%= msgs[i]._id%> >
-            <span class="text-gradient"><i class="fas fa-times"></i></span>
-        </a>
-    </td>
-</tr>
-<% } %>
+
+<% msg.forEach(Msg =>{ %>
+                <tr> 
+                    <td><%= Msg.section %></td>
+                    <td><%= Msg.name %></td>
+                    <td><%= Msg.phone %> </td>
+                    <td><%= Msg.location %> </td>
+                    <td><%= Msg.message %> </td>
+                    <td>
+                            <!-This form has to be named by the same name of the variable in our route-->
+                            <form action="staff/<%= Msg.id %>" method="post">
+                            <button type="submit" class="btn btn-danger delete-product">Delete</button>
+                        </form> 
+                    </td>
+                </tr>
+                <%})%>

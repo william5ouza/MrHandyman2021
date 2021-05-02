@@ -1,63 +1,51 @@
-
-<!--THE MAIN STRUCTURE OF THE CODE WAS TAKING FROM https://github.com/mikhail-cct/xml-bootcamp -->
 <html lang="en">
 
 <head>
      <%- include('../views/partials/head.ejs'); %>
-
-     <script src="/js/test.js"></script>
-   
-</head>
-
-<body>
-    <header>
+ </head>
+    <body>
+<header>
         <%- include('../views/partials/header.ejs'); %>
-   
-                       
-    </header>
+</header>
          <!-- Page Content -->
-    <div class="table-container">
-          <div class="row justify-content-md-center">
-        <div class="col-md-15"> 
-         
-          <h1 class="display-5 ">Client's messages</h1>
-           <p>All messages received can be found in the table below.
-                Once the client is contacted, please delete the message.
-           </p>
-             </div>
-        </div>
-        </div>
-      <body>
-
-      <div id="results" class="col-lg-8 text-center order-2">
-       <form action="/message/:id" method="DELETE">
-            <table class="table-content">
-
-			    <thead>
-                    <tr>
-			 <th>Section</th>
-                         <th>Name</th>
-			 <th>Phone</th>
-                         <th>Area</th>
-                         <th>Message</th>
-                    </tr>
-			    </thead>
-
-			<tbody>
-                  <%- include('../views/partials/table.ejs'); %>
-            </tbody>
-            </table>
-        </div>
-  
-    </body>
-    <div class="card bg-info">
-    <footer class="card-footer ">
-        <%- include('../views/partials/footer.ejs'); %>
-    </footer></div>
-    <!-- Bootstrap core JavaScript -->
+            <div class="table-container">
+            <div class="row justify-content-md-center">
+            <div class="col-md-15"> 
+            <h1 class="display-5 ">Client's messages</h1>
+            <p>All messages received can be found in the table below.
+            Once the client is contacted, please delete the message.
+            </p>
+      </div>
      
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-   
-    
-</body>
+  <main>
+        
+        <div class="table-container">
+            <div class="table-wrapper">
+               <table id="table" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Name Date</th>
+                            <th>Phone</th>
+                            <th>Location</th>
+                            <th>Message</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                            <tbody>
+                           <%- include('partials/table'); %>
+                          </tbody>
+                         </table>
+                        </div>
+                       </div>
+                      </main>
+                     </div>
+                    </div>
+                   </body>
+                    <div class="card bg-info">
+            <footer class="card-footer ">
+                <%- include('partials/footer'); %>
+    </footer></div>
+ 
+</html>    
+
