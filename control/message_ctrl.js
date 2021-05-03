@@ -30,8 +30,7 @@ exports.createMsg = async(req, res) =>{
         console.log("There was an error with your messsage");
         console.log(error);      
     }
-    alert("Thanks for your message, we will contact you shortly")
-    res.redirect('/staff');
+     res.redirect('/staff');
 };
 //Get all messages
 exports.getMessages = async(req,res)=>{

@@ -23,10 +23,11 @@
     "express": "^4.17.1",
     "heroku": "^7.53.0",
     "mongoose": "^5.12.5",
+     "dotenv": "^8.2.0",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0",
+   
     "nodemon": "^2.0.7"
   }
 }
