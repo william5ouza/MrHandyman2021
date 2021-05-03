@@ -8,7 +8,7 @@ CRUD with Node.js
 Deploying the app from Heroku
 Creating and accessing a database on MongoDB Atlas
 
-The Heroku link for this app is https://mrhandyman-app.herokuapp.com/staff
+The Heroku link for this app is https://mrhandyman-app.herokuapp.com/
 
 In order to run this application install the modules by typing: 
 
