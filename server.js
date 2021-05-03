@@ -44,3 +44,4 @@ app.use('/', require('./router/routes'));
 
 
 app.listen(8000,() => {console.log(`Server is running on http://localhost:${PORT}`)});
+console.log(process.env.DB_URL);
